@@ -1,0 +1,41 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://47.105.248.152:9082/cb_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=CTT&allowMultiQueries=true&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    username: cbwms
+    password: dazhao123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT1FROMDUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall
+    connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis: 5000
+  devtools:
+    restart:
+      enabled: true
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.jiao.pojo.dao
+  #配置sql打印日志
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+
+
